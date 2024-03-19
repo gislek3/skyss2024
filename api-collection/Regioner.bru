@@ -1,0 +1,23 @@
+meta {
+  name: Regioner
+  type: graphql
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  {
+    areas {
+      counties {
+        number
+        name
+      }
+    }
+  }
+  
+}

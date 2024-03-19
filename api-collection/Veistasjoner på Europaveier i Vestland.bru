@@ -1,0 +1,41 @@
+meta {
+  name: Veistasjoner på Europaveier i Vestland
+  type: graphql
+  seq: 1
+}
+
+post {
+  url: {{baseUrl}}
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  query trafficStations(
+    $countyNumber: PositiveInt!
+    $roadCategoryId: RoadCategoryId!
+  ) {
+    trafficRegistrationPoints(
+      searchQuery: {
+        countyNumbers: [$countyNumber]
+        roadCategoryIds: [$roadCategoryId]
+      }
+    ) {
+      id
+      name
+      location {
+        county {
+          name
+        }
+      }
+    }
+  }
+  
+}
+
+body:graphql:vars {
+  {
+    "countyNumber": 46, // Vestland
+    "roadCategoryId": "E"
+  }
+}

@@ -1,0 +1,26 @@
+meta {
+  name: Alle veistasjoner
+  type: graphql
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}
+  body: graphql
+  auth: none
+}
+
+body:graphql {
+  {
+    trafficRegistrationPoints {
+      id
+      name
+      location {
+        county {
+          name
+        }
+      }
+    }
+  }
+  
+}
